@@ -1,0 +1,7 @@
+build/
+dist/
+tmp/
+models/
+database.db
+__pycache__/
+*.pyc

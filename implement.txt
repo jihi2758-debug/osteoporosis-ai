@@ -1,0 +1,3 @@
+conda activate osteo_ai
+cd C:\Users\YASH\osteo_ai
+streamlit run web_app.py

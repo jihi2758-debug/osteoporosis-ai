@@ -1,0 +1,189 @@
+/* --------------------------------------------
+   PREMIUM GLASSMORPHISM UI + DUST EFFECT
+---------------------------------------------*/
+
+/* Import Premium Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+:root {
+    --bg-1: rgba(255, 255, 255, 0.03);
+    --glass: rgba(255, 255, 255, 0.06);
+    --accent: #2fb7b7;
+    --accent-2: #7ad7d7;
+    --muted: rgba(255, 255, 255, 0.6);
+    --card-border: rgba(255, 255, 255, 0.08);
+}
+
+html,
+body,
+.block-container {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, rgba(12, 21, 26, 1), rgba(18, 26, 31, 1));
+    color: #e9f6f6;
+    overflow-x: hidden;
+}
+
+/* ---------------- DUST PARTICLES ---------------- */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.14) 2px, transparent 3px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.12) 1.5px, transparent 2.5px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.16) 1.8px, transparent 2.8px);
+    background-size: 4px 4px, 3px 3px, 5px 5px;
+    background-position:
+        20% 30%,
+        60% 70%,
+        80% 40%;
+    filter: blur(0.8px);
+    animation: dustMove 18s linear infinite;
+    z-index: 0;
+    opacity: 0.4;
+}
+
+@keyframes dustMove {
+    0% {
+        transform: translateY(0px) translateX(0px);
+    }
+
+    50% {
+        transform: translateY(-25px) translateX(15px);
+    }
+
+    100% {
+        transform: translateY(0px) translateX(0px);
+    }
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.18) 1.5px, transparent 2.5px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.12) 1px, transparent 2px);
+    background-size: 4px 4px, 2px 2px;
+    background-position:
+        40% 20%,
+        10% 80%;
+    filter: blur(1px);
+    opacity: 0.25;
+    animation: dustDrift 22s linear infinite;
+    z-index: 0;
+}
+
+@keyframes dustDrift {
+    0% {
+        transform: translateY(0px) translateX(0px);
+    }
+
+    50% {
+        transform: translateY(30px) translateX(-20px);
+    }
+
+    100% {
+        transform: translateY(0px) translateX(0px);
+    }
+}
+
+/* ---------------- HEADER ------------ */
+.header-wrap {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 18px;
+}
+
+.header-glow {
+    position: absolute;
+    width: 120%;
+    height: 200px;
+    left: -10%;
+    top: -40px;
+    filter: blur(40px);
+    background: linear-gradient(90deg, rgba(47, 183, 183, 0.18), rgba(122, 215, 215, 0.12));
+    animation: float 10s ease-in-out infinite;
+    transform: rotate(-6deg);
+    z-index: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(-6deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(-6deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(-6deg);
+    }
+}
+
+.h1-glass {
+    padding: 18px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 30px rgba(2, 8, 12, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    backdrop-filter: blur(12px);
+    position: relative;
+    z-index: 5;
+}
+
+/* ---------------- GLASS CARD ------------ */
+.glass-card {
+    border-radius: 12px;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(12px);
+    margin-bottom: 25px;
+}
+
+/* ---------------- SIDEBAR ------------ */
+[data-testid="stSidebar"] {
+    background: rgba(255, 255, 255, 0.02);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+}
+
+/* ---------------- BUTTONS ------------ */
+.stButton>button {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: #072222;
+    font-weight: 600;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(47, 183, 183, 0.12);
+}
+
+.small-muted {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 12px;
+}
+
+/* Chat box */
+.chat-box {
+    max-height: 400px;
+    overflow-y: auto;
+    background: rgba(10, 14, 16, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 10px;
+}
